@@ -11,10 +11,10 @@ import java.util.Optional;
 
 public interface TodoRepository extends JpaRepository<Todo, Long> {
 
-    @EntityGraph(attributePaths = {"user"})
+    @EntityGraph(attributePaths = {"team"})
     Page<Todo> findAllByOrderByModifiedAtDesc(Pageable pageable);
 
-    @EntityGraph(attributePaths = {"user"})
+    @EntityGraph(attributePaths = {"team"})
     Optional<Todo> findById(@Param("todoId") Long todoId);
 
     int countById(Long todoId);
